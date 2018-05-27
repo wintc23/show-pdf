@@ -1,6 +1,7 @@
 # show-pdf
 
-> A Vue.js project
+> A Demo of about showing pdf file in the mobile browser
+
 
 ## Build Setup
 
