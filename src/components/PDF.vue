@@ -19,6 +19,7 @@ export default {
   },
   methods: {
     renderPage (num) {
+      let _this = this
       this.pdfDoc.getPage(num).then(function (page) {
         let canvas = document.getElementById('the-canvas' + num)
         let ctx = canvas.getContext('2d')
@@ -30,9 +31,6 @@ export default {
                   ctx.backingStorePixelRatio || 1
         let ratio = dpr / bsr
         var viewport = page.getViewport(screen.availWidth / page.getViewport(1).width)
-        // screen.availWidth / page.getViewport(1).width
-        console.log('the-canvas' + num)
-        // Render PDF page into canvas context
         canvas.width = viewport.width * ratio
         canvas.height = viewport.height * ratio
         canvas.style.width = viewport.width + 'px'
@@ -43,26 +41,24 @@ export default {
           viewport: viewport
         }
         page.render(renderContext)
+        if (_this.pages > num) {
+          _this.renderPage(num + 1)
+        }
       })
     },
-    async loadFile (url) {
+    loadFile (url) {
       let _this = this
-      await PDFJS.getDocument(url).then(function (pdf) {
-        _this.show = true
+      PDFJS.getDocument(url).then(function (pdf) {
         _this.pdfDoc = pdf
         _this.pages = _this.pdfDoc.numPages
         _this.$nextTick(() => {
-          for (let page = 1; page <= _this.pages; page++) {
-            _this.renderPage(page)
-          }
+          _this.renderPage(1)
         })
       })
-      _this.$f7.hideIndicator()
     }
   },
-  async mounted () {
+  mounted () {
     let url = Base64.decode(this.$route.query.url)
-    console.log(url)
     this.loadFile(url)
   }
 }
@@ -70,7 +66,7 @@ export default {
 
 <style scoped>
 canvas {
-  margin: 1px auto;
   display: block;
+  border-bottom: 1px solid black;
 }
 </style>

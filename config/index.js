@@ -11,17 +11,17 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      '/view': {  
-        target: 'https://wenku.baidu.com', // 换成正确的服务器域名  
-        changeOrigin: true,  
-        pathRewrite: {  
-          '^/view': '/view'  
+      '/mozilla': {
+        target: 'https://raw.githubusercontent.com',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/mozilla': '/mozilla'
         }
       }
     },
 
     // Various Dev Server settings
-    host: 'localhost', // can be overwritten by process.env.HOST
+    host: '0.0.0.0', // can be overwritten by process.env.HOST
     port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: false,
     errorOverlay: true,

@@ -15,7 +15,7 @@ export default {
   name: 'Home',
   data () {
     return {
-      url: '/media/up/2018/3/9/494079c7ec333bd371798dd0a73c0a0b.pdf'
+      url: '/mozilla/pdf.js/28360a0142f3610bfc30fc01db50303ad6202f0c/examples/helloworld/helloworld.pdf'
     }
   },
   methods: {
