@@ -10,7 +10,15 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/view': {  
+        target: 'https://wenku.baidu.com', // 换成正确的服务器域名  
+        changeOrigin: true,  
+        pathRewrite: {  
+          '^/view': '/view'  
+        }
+      }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST

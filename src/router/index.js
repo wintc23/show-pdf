@@ -9,6 +9,11 @@ export default new Router({
       path: '/',
       name: 'Home',
       component: () => import('@/components/Home')
+    },
+    {
+      path: '/pdf',
+      name: 'PDF',
+      component: () => import('@/components/PDF.vue')
     }
   ]
 })
