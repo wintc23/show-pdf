@@ -19,4 +19,9 @@ npm run build
 npm run build --report
 ```
 
+## 注意事项
+```
+注意查看代理(config/index.js中proxyTable)的配置，报错InvalidPDFException多半是因为地址不对或者DEV环境下没有配置代理。
+```
+
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
