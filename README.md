@@ -1,6 +1,6 @@
 # show-pdf
 
-> A Demo of about showing pdf file in the mobile browser
+> A Demo of showing pdf file on mobile web browser
 
 
 ## Build Setup
