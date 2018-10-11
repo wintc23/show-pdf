@@ -3,8 +3,10 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import PDF from '@/components/pdf'// 引入在线预览pdf组件
 
 Vue.config.productionTip = false
+Vue.use(PDF)// 使用plugin方式调用在线预览pdf组件
 
 /* eslint-disable no-new */
 new Vue({

@@ -4,6 +4,8 @@
     <input type="text" v-model="url"/>
     <button @click="OpenPDF">打开pdf文件</button>
     <div class="notice">提示：DEV环境下请在config/index.js中配置代理，否则会出现跨域报错</div>
+    <br/><br/><br/><br/><br/>
+    <button @click="OpenPDFByPlugin">使用插件（plugin）方式打开pdf文件</button>
   </div>
 </template>
 
@@ -21,6 +23,9 @@ export default {
   methods: {
     OpenPDF () {
       this.$router.push({ name: 'PDF', query: { url: Base64.encode(this.url) } })
+    },
+    OpenPDFByPlugin () {
+      this.$showPDF(this.url)
     }
   }
 }
